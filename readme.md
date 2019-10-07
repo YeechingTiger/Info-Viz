@@ -1,9 +1,16 @@
-* Frontend
+* Frontend  
+```console
 http-server Frontend
+```
 
-* Backend
-install packages
+* Backend  
+
+install python packages  
+```console
 pip install -r requirements.txt
-
-run the server
+```
+  
+run the server  
+```console
 python server.py
+```
