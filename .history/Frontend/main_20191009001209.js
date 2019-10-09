@@ -390,21 +390,21 @@ function update(source, slow) {
     // nodeEnter.append("svg:circle")
     //     .attr("r", 1e-6);
     nodeEnter.append("svg:rect")
-    .attr("width", 60)
-    .attr("height", 20)
+    .attr("width", 30)
+    .attr("height", 30)
     .attr("stroke-width", 1)
     .attr("stroke", 'rgb(0,0,0)')
-    .attr("y", "-10");
+    .attr("dy", ".35em");
     //.style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
     nodeEnter.append("svg:text")
-        // .attr("x", function (d) {
-        //     return d.children || d._children ? -10 : 10;
-        // })
+        .attr("x", function (d) {
+            return d.children || d._children ? -10 : 10;
+        })
         //            .attr("dy", ".35em")
         //            .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-        // .attr("dy", 14)
-        // .attr("text-anchor", "middle")
+        .attr("dy", 14)
+        .attr("text-anchor", "middle")
         .text(function (d) {
             return (d.name || d.text);
         })
@@ -426,8 +426,8 @@ function update(source, slow) {
     // nodeUpdate.select("circle")
     //     .attr("r", 4.5);
     nodeUpdate.select("rect")
-        .attr("width", 60)
-        .attr("height", 20);
+        .attr("width", 30)
+        .attr("height", 30);
     //.style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
     /*
@@ -449,8 +449,8 @@ function update(source, slow) {
     //     .attr("r", 1e-6);
 
     nodeExit.select("rect")
-        .attr("width", 60)
-        .attr("height", 20);
+        .attr("width", 30)
+        .attr("height", 30);
 
     nodeExit.select("text")
         .style("fill-opacity", 1e-6);

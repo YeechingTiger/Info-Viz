@@ -404,7 +404,7 @@ function update(source, slow) {
         //            .attr("dy", ".35em")
         //            .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
         // .attr("dy", 14)
-        // .attr("text-anchor", "middle")
+        .attr("text-anchor", "middle")
         .text(function (d) {
             return (d.name || d.text);
         })
