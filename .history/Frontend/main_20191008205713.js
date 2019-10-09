@@ -504,7 +504,7 @@ function toggle(d) {
 }
 
 // Query Database
-var queryServer = function() {
+queryServer = function() {
     let data = {query: "Match (a:SDSI)-[b:is_effective_for]-(c:DIS {name:'Colds, Common'}) return a, b, c;"};
 
     fetch("http://localhost:5000/api/v1/query", {
@@ -515,80 +515,18 @@ var queryServer = function() {
             return res.json();
         }).then(res => {
             console.log(res.graph);
-            let json = transformGraphToMindmap(res.graph);
-            loadGraph(json);
         });
 }
 
-var transformGraphToMindmap = function(graph) {
-    let nodes = {};
-    let relationships = {};
+transformGraphToMindmap = function(graph) {
+    let root = {};
+    let relationship = {};
     graph.forEach(pair => {
-        if (!nodes[pair.nodes[0].labels[0]]) {
-            nodes[pair.nodes[0].labels[0]] = {};
-        }
-        nodes[pair.nodes[0].labels[0]][pair.nodes[0].id] = pair.nodes[0];
-
-        if (!nodes[pair.nodes[1].labels[0]]) {
-            nodes[pair.nodes[1].labels[0]] = {};
-        }
-        nodes[pair.nodes[1].labels[0]][pair.nodes[1].id] = pair.nodes[1];
-        
-        if (!relationships[pair.relationships[0].type]) {
-            relationships[pair.relationships[0].type] = [];
-        }
-        relationships[pair.relationships[0].type][pair.relationships[0].id] = pair.relationships[0];
+        root[pair.nodes[0].labels[0]].push(pair.nodes[0]);
+        root[pair.nodes[1].labels[0]].push(pair.nodes[1]);
+        relationship[pair.nodes[1].labels[0]]
     });
-    console.log(nodes);
-    console.log(relationships);
-    let root = {
-        name: "Root",
-        children: []
-    }
-    for (var key in nodes['DIS']) {
-        root.children.push({
-            name: nodes['DIS'][key].properties.name,
-            id: nodes['DIS'][key].id,
-        });
-    }
-
-    let SDSIArray = [];
-    for (var key in nodes['SDSI']) {
-        SDSIArray.push({
-            name: nodes['SDSI'][key].properties.name,
-            id: nodes['SDSI'][key].id,
-        });
-    }
-    root.children[0].children = SDSIArray;
-
-    return root;
 }
 
-//*
-var loadGraph = function (json) {
-    //d3.json("/data/data.json", function(json) {
-        var i = 0,
-            l = json.children.length;
-        window.data = root = json;
-        root.x0 = h / 2;
-        root.y0 = 0;
-
-        json.left = [];
-        json.right = [];
-        for (; i < l; i++) {
-            if (i % 2) {
-                json.left.push(json.children[i]);
-                json.children[i].position = 'left';
-            } else {
-                json.right.push(json.children[i]);
-                json.children[i].position = 'right';
-            }
-        }
-
-        update(root, true);
-        selectNode(root);
-};
-//*/
-
-// loadJSON('data.json');
+loadJSON('data.json');
 queryServer();

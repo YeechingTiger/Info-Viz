@@ -553,15 +553,9 @@ var transformGraphToMindmap = function(graph) {
     }
 
     let SDSIArray = [];
-    for (var key in nodes['SDSI']) {
-        SDSIArray.push({
-            name: nodes['SDSI'][key].properties.name,
-            id: nodes['SDSI'][key].id,
-        });
-    }
-    root.children[0].children = SDSIArray;
+    for (var key in nodes['SD'])
 
-    return root;
+    
 }
 
 //*

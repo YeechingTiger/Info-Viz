@@ -523,6 +523,7 @@ var queryServer = function() {
 var transformGraphToMindmap = function(graph) {
     let nodes = {};
     let relationships = {};
+    let linkIdSet = new Set();
     graph.forEach(pair => {
         if (!nodes[pair.nodes[0].labels[0]]) {
             nodes[pair.nodes[0].labels[0]] = {};
@@ -541,27 +542,6 @@ var transformGraphToMindmap = function(graph) {
     });
     console.log(nodes);
     console.log(relationships);
-    let root = {
-        name: "Root",
-        children: []
-    }
-    for (var key in nodes['DIS']) {
-        root.children.push({
-            name: nodes['DIS'][key].properties.name,
-            id: nodes['DIS'][key].id,
-        });
-    }
-
-    let SDSIArray = [];
-    for (var key in nodes['SDSI']) {
-        SDSIArray.push({
-            name: nodes['SDSI'][key].properties.name,
-            id: nodes['SDSI'][key].id,
-        });
-    }
-    root.children[0].children = SDSIArray;
-
-    return root;
 }
 
 //*

@@ -559,9 +559,8 @@ var transformGraphToMindmap = function(graph) {
             id: nodes['SDSI'][key].id,
         });
     }
-    root.children[0].children = SDSIArray;
 
-    return root;
+    
 }
 
 //*

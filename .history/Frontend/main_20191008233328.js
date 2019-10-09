@@ -547,21 +547,11 @@ var transformGraphToMindmap = function(graph) {
     }
     for (var key in nodes['DIS']) {
         root.children.push({
-            name: nodes['DIS'][key].properties.name,
-            id: nodes['DIS'][key].id,
+            name: nodes['DIS'][key],
+            child
         });
     }
-
-    let SDSIArray = [];
-    for (var key in nodes['SDSI']) {
-        SDSIArray.push({
-            name: nodes['SDSI'][key].properties.name,
-            id: nodes['SDSI'][key].id,
-        });
-    }
-    root.children[0].children = SDSIArray;
-
-    return root;
+    
 }
 
 //*

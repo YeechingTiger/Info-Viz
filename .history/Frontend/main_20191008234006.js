@@ -561,7 +561,7 @@ var transformGraphToMindmap = function(graph) {
     }
     root.children[0].children = SDSIArray;
 
-    return root;
+    
 }
 
 //*
