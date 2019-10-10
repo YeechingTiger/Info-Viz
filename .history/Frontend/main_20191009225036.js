@@ -585,7 +585,7 @@ var queryServer = function (q_type, q_symptom) {
     }
     
 
-    fetch("http://54.196.96.108:5001/api/v1/query", {
+    fetch("http://54.196.96.108:5000/api/v1/query", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
