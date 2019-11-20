@@ -224,11 +224,6 @@ export class MindmapComponent implements OnInit {
         query: `Match (a:DIS)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
       }
       q_type = '5';
-    } else if (this.problemId === '7') {
-      data = {
-        query: `Match (a:PD)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
-      }
-      q_type = '7';
     }
 
     console.log(data);
@@ -407,7 +402,7 @@ export class MindmapComponent implements OnInit {
         DSPArray.push(tempNode);
       }
       root.children[0].children = DSPArray;
-    } else if (q_type === "7") {
+    } else if (q_type === "5") {
       for (var key in nodes['SDSI']) {
         let tempNode = {
           name: nodes['SDSI'][key].properties.name,
@@ -428,7 +423,7 @@ export class MindmapComponent implements OnInit {
           background: nodes['PD'][key].properties.background
         };
 
-        this.nodeHash[nodes['PD'][key].id] = tempNode;
+        this.nodeHash[nodes['DIS'][key].id] = tempNode;
 
         DSPArray.push(tempNode);
       }

@@ -1,4 +1,4 @@
-<div [hidden]="!(problemId === '1'|| problemId === '2' || problemId === '3' || problemId === '5' || problemId === '6' || problemId === '7')" class="main-content">
+<div [hidden]="!(problemId === '1'|| problemId === '2' || problemId === '3')" class="main-content">
   <button [routerLink]="['/dashboard']" mat-mini-fab color="primary">Back</button>
   <div class="main-container">
     <div class="left-container">
@@ -71,31 +71,9 @@
               </button>
             </div>
 
-            <div *ngIf="problemId === '5'" class="input-group no-border">
-              <p class="question">
-                What are the common uses of Dietary Supplement
-                &nbsp;
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Ingredient X" [matAutocomplete]="autoi" [formControl]="ingredCtrl">
-                  <mat-autocomplete #autoi="matAutocomplete">
-                    <mat-option *ngFor="let ingred of filteredingredient | async" [value]="ingred.name">
-                      <span>{{ingred.name}}</span>
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
-
-                ?
-              </p>
-              &nbsp;
-              <button mat-raised-button (click)="queryServer()" class="btn btn-white btn-round btn-just-icon">
-                <i class="material-icons">search</i>
-                <div class="ripple-container"></div>
-              </button>
-            </div>
-
             <div *ngIf="problemId === '6'" class="input-group no-border">
               <p class="question">
-                What is/are the common adverse reaction(s) associated with Dietary Supplement
+                What is/are the common adverse reaction(s) associated with Dietary Supplement ingredient X?
                 &nbsp;
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Ingredient X" [matAutocomplete]="autoi" [formControl]="ingredCtrl">
@@ -107,28 +85,6 @@
                 </mat-form-field>
 
                 ?
-              </p>
-              &nbsp;
-              <button mat-raised-button (click)="queryServer()" class="btn btn-white btn-round btn-just-icon">
-                <i class="material-icons">search</i>
-                <div class="ripple-container"></div>
-              </button>
-            </div>
-
-            <div *ngIf="problemId === '7'" class="input-group no-border">
-              <p class="question">
-                With what medications does Dietary Supplement
-                &nbsp;
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Ingredient X" [matAutocomplete]="autoi" [formControl]="ingredCtrl">
-                  <mat-autocomplete #autoi="matAutocomplete">
-                    <mat-option *ngFor="let ingred of filteredingredient | async" [value]="ingred.name">
-                      <span>{{ingred.name}}</span>
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
-
-                could interact with?
               </p>
               &nbsp;
               <button mat-raised-button (click)="queryServer()" class="btn btn-white btn-round btn-just-icon">

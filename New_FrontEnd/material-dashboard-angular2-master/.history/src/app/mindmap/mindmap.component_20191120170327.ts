@@ -216,19 +216,9 @@ export class MindmapComponent implements OnInit {
       q_type = 'ingredient';
     } else if (this.problemId === '6') {
       data = {
-        query: `Match (a:SS)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
+        query: `Match (a:SDSI)-[b:]-(c:DIS {name:'${this.sympton}'}) return a, b, c limit 10;`
       }
       q_type = '6';
-    } else if (this.problemId === '5') {
-      data = {
-        query: `Match (a:DIS)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
-      }
-      q_type = '5';
-    } else if (this.problemId === '7') {
-      data = {
-        query: `Match (a:PD)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
-      }
-      q_type = '7';
     }
 
     console.log(data);
@@ -351,84 +341,6 @@ export class MindmapComponent implements OnInit {
         };
 
         this.nodeHash[nodes['DSP'][key].id] = tempNode;
-
-        DSPArray.push(tempNode);
-      }
-      root.children[0].children = DSPArray;
-    } else if (q_type === "6") {
-      for (var key in nodes['SDSI']) {
-        let tempNode = {
-          name: nodes['SDSI'][key].properties.name,
-          id: nodes['SDSI'][key].id,
-          type: 'SDSI'
-        };
-        this.nodeHash[nodes['SDSI'][key].id] = tempNode;
-        root.children.push(tempNode);
-      }
-
-      let DSPArray = [];
-      for (var key in nodes['SS']) {
-
-        let tempNode = {
-          name: nodes['SS'][key].properties.name,
-          id: nodes['SS'][key].id,
-          type: 'SS',
-          background: nodes['SS'][key].properties.background
-        };
-
-        this.nodeHash[nodes['SS'][key].id] = tempNode;
-
-        DSPArray.push(tempNode);
-      }
-      root.children[0].children = DSPArray;
-    } else if (q_type === "5") {
-      for (var key in nodes['SDSI']) {
-        let tempNode = {
-          name: nodes['SDSI'][key].properties.name,
-          id: nodes['SDSI'][key].id,
-          type: 'SDSI'
-        };
-        this.nodeHash[nodes['SDSI'][key].id] = tempNode;
-        root.children.push(tempNode);
-      }
-
-      let DSPArray = [];
-      for (var key in nodes['DIS']) {
-
-        let tempNode = {
-          name: nodes['DIS'][key].properties.name,
-          id: nodes['DIS'][key].id,
-          type: 'DIS',
-          background: nodes['DIS'][key].properties.background
-        };
-
-        this.nodeHash[nodes['DIS'][key].id] = tempNode;
-
-        DSPArray.push(tempNode);
-      }
-      root.children[0].children = DSPArray;
-    } else if (q_type === "7") {
-      for (var key in nodes['SDSI']) {
-        let tempNode = {
-          name: nodes['SDSI'][key].properties.name,
-          id: nodes['SDSI'][key].id,
-          type: 'SDSI'
-        };
-        this.nodeHash[nodes['SDSI'][key].id] = tempNode;
-        root.children.push(tempNode);
-      }
-
-      let DSPArray = [];
-      for (var key in nodes['PD']) {
-
-        let tempNode = {
-          name: nodes['PD'][key].properties.name,
-          id: nodes['PD'][key].id,
-          type: 'PD',
-          background: nodes['PD'][key].properties.background
-        };
-
-        this.nodeHash[nodes['PD'][key].id] = tempNode;
 
         DSPArray.push(tempNode);
       }

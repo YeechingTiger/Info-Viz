@@ -224,11 +224,6 @@ export class MindmapComponent implements OnInit {
         query: `Match (a:DIS)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
       }
       q_type = '5';
-    } else if (this.problemId === '7') {
-      data = {
-        query: `Match (a:PD)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
-      }
-      q_type = '7';
     }
 
     console.log(data);
@@ -381,7 +376,7 @@ export class MindmapComponent implements OnInit {
         DSPArray.push(tempNode);
       }
       root.children[0].children = DSPArray;
-    } else if (q_type === "5") {
+    } else if (q_type === "6") {
       for (var key in nodes['SDSI']) {
         let tempNode = {
           name: nodes['SDSI'][key].properties.name,
@@ -403,32 +398,6 @@ export class MindmapComponent implements OnInit {
         };
 
         this.nodeHash[nodes['DIS'][key].id] = tempNode;
-
-        DSPArray.push(tempNode);
-      }
-      root.children[0].children = DSPArray;
-    } else if (q_type === "7") {
-      for (var key in nodes['SDSI']) {
-        let tempNode = {
-          name: nodes['SDSI'][key].properties.name,
-          id: nodes['SDSI'][key].id,
-          type: 'SDSI'
-        };
-        this.nodeHash[nodes['SDSI'][key].id] = tempNode;
-        root.children.push(tempNode);
-      }
-
-      let DSPArray = [];
-      for (var key in nodes['PD']) {
-
-        let tempNode = {
-          name: nodes['PD'][key].properties.name,
-          id: nodes['PD'][key].id,
-          type: 'PD',
-          background: nodes['PD'][key].properties.background
-        };
-
-        this.nodeHash[nodes['PD'][key].id] = tempNode;
 
         DSPArray.push(tempNode);
       }

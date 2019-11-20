@@ -228,7 +228,7 @@ export class MindmapComponent implements OnInit {
       data = {
         query: `Match (a:PD)-[b]-(c:SDSI {name:'${this.selectedIngredient}'}) return a, b, c limit 10;`
       }
-      q_type = '7';
+      q_type = '5';
     }
 
     console.log(data);
@@ -407,7 +407,7 @@ export class MindmapComponent implements OnInit {
         DSPArray.push(tempNode);
       }
       root.children[0].children = DSPArray;
-    } else if (q_type === "7") {
+    } else if (q_type === "5") {
       for (var key in nodes['SDSI']) {
         let tempNode = {
           name: nodes['SDSI'][key].properties.name,
