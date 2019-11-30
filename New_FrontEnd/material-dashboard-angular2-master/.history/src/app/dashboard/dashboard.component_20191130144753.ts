@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
       this.assignCopy();
     } // when nothing has typed
     this.filteredItems = Object.assign([], this.questions).filter(
-      item => item.question.toLowerCase().indexOf(value.toLowerCase()) > -1
+      item => item.toLowerCase().indexOf(value.toLowerCase()) > -1
     )
   }
 

@@ -18,8 +18,7 @@ import {
   MatExpansionModule,
   MatMenuModule,
   MatSnackBarModule,
-  MatAutocompleteModule,
-  MatIconModule
+  MatAutocompleteModule
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -38,7 +37,7 @@ import {
     MatMenuModule,
     MatSnackBarModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIc
   ],
   declarations: [
     DashboardComponent,

@@ -10,19 +10,19 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="profile">
                             <mat-form-field class="example-form-field">
-                                    <input matInput type="text" placeholder="Question Filter" [(ngModel)]="value" (input)="filterItem(value)">
+                                    <input matInput type="text" placeholder="Question Filter" [(ngModel)]="value" (input)="filterItem(value)>
                                     <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                                         <mat-icon>close</mat-icon>
                                     </button>
                                     </mat-form-field>
                                 <table class="table">
                                     <tbody>
-                                        <tr *ngFor="let question of filteredItems;">
+                                        <tr *ngFor="let question of questions; let i = index;">
                                             <td>
-                                                {{ question.question }}
+                                                {{ question }}
                                             </td>
                                             <td>
-                                                <button [routerLink]="['/mindmap', question.index+1]" mat-mini-fab color="primary">Go!</button>
+                                                <button [routerLink]="['/mindmap', i+1]" mat-mini-fab color="primary">Go!</button>
                                             </td>
                                         </tr>
                                     </tbody>

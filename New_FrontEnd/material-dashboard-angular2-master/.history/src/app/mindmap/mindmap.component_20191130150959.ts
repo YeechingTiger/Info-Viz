@@ -492,7 +492,7 @@ export class MindmapComponent implements OnInit {
         } else if (d.data.type == "SOC") {
           return d._children ? "lightsteelblue" : "#a739";
         } else if (d.data.type == "SS") {
-          return d._children ? "lightsteelblue" : "#FFF176";
+          return d._children ? "lightsteelblue" : "#bc6";
         } else {
           return d._children ? "lightsteelblue" : "#c6a739";
         }

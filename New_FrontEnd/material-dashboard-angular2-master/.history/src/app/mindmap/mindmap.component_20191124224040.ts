@@ -484,7 +484,7 @@ export class MindmapComponent implements OnInit {
         } else if (d.data.type == "DSP") {
           return d._children ? "lightsteelblue" : "#39B1C6";
         } else if (d.data.type == "SDSI") {
-          return d._children ? "lightsteelblue" : "#75FF33";
+          return d._children ? "lightsteelblue" : "#397bc6";
         } else if (d.data.type == "PD") {
           return d._children ? "lightsteelblue" : "rgb(197, 82, 226)";
         } else if (d.data.type == "TC") {
@@ -492,7 +492,7 @@ export class MindmapComponent implements OnInit {
         } else if (d.data.type == "SOC") {
           return d._children ? "lightsteelblue" : "#a739";
         } else if (d.data.type == "SS") {
-          return d._children ? "lightsteelblue" : "#FFF176";
+          return d._children ? "lightsteelblue" : "#bc6";
         } else {
           return d._children ? "lightsteelblue" : "#c6a739";
         }
@@ -537,7 +537,7 @@ export class MindmapComponent implements OnInit {
         } else if (d.data.type == "DSP") {
           return d._children ? "lightsteelblue" : "#39B1C6";
         } else if (d.data.type == "SDSI") {
-          return d._children ? "lightsteelblue" : "#75FF33";
+          return d._children ? "lightsteelblue" : "#397bc6";
         } else if (d.data.type == "PD") {
           return d._children ? "lightsteelblue" : "rgb(197, 82, 226)";
         } else if (d.data.type == "TC") {
@@ -545,7 +545,7 @@ export class MindmapComponent implements OnInit {
         } else if (d.data.type == "SOC") {
           return d._children ? "lightsteelblue" : "#a739";
         } else if (d.data.type == "SS") {
-          return d._children ? "lightsteelblue" : "#FFF176";
+          return d._children ? "lightsteelblue" : "#bc6";
         } else {
           return d._children ? "lightsteelblue" : "#c6a739";
         }
